@@ -1,0 +1,74 @@
+[
+  '{{repeat(5, 7)}}',
+  {
+    idPatient: '{{index()}}',
+    nomPatient: '{{firstName()}}',
+    prenomPatient: '{{surname()}}',
+    sexe: '{{gender()}}',
+    phone: '+1 {{phone()}}',
+    dateNaissancePatient:'{{date(new Date(1970, 0, 1), new Date(),"dd/MM/YYYY")}}',
+    adressePatient: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
+    codeAssurance: '{{guid()}}',
+    nomPersPrevenir: '{{firstName()}}',
+    telPersPrevenir: '+1 {{phone()}}',
+    consultation: [
+      '{{repeat(0,3)}}',
+      {
+        idConsultation: '{{index()}}',
+        dateConsultation:'{{date(new Date(2020, 11, 1), new Date(),"dd/MM/YYYY")}}',
+        motifConsultatin: '{{lorem(1, "sentences")}}',
+        noteConsultation: '{{lorem(1, "paragraphs")}}',
+        typeConsultation : {
+          idTypeConsult: '{{index()}}',
+          libelleTypeCons: '',
+          prixTypeCons: '{{floating(15, 45, 2, "00.00€")}}'
+        },
+        fichier : {
+          idFichier: '{{index()}}',
+          nomFichier: '',
+          fichier: ''
+        },
+        praticien : {
+          idPraticien: '{{index()}}',
+          nomPraticien: '{{firstName()}}',
+          prenomPraticien: '{{surname()}}',
+          telephonePraticien: '+1 {{phone()}}',
+          specialite: {
+            idSpecialite: '{{index()}}',
+            libelleSpecialite: ''
+          },
+          service : {
+            idService: '{{index()}}',
+            libelleService: ''
+          },
+          utilisateur: {
+            idUtilisateur: '{{index()}}',
+            loginUtilisateur: '',
+            motPasseUtilisateur: '',
+            saltUtilisateur: ''
+          }
+        }
+      }
+    ],
+    ordonnance : [
+      '{{repeat(0,3)}}',
+      {
+        idOrdonnance:'{{index()}}',
+        dateOrdonnance: '{{date(new Date(2020, 11, 1), new Date(),"dd/MM/YYYY")}}',
+        detailOrdonnance : [
+          '{{repeat(1,2)}}',
+          {
+            idDetailOrdonnance: '{{index()}}',
+            quantite: '{{integer(1, 5)}}',
+            medicament: {
+              idMedicament: '{{index()}}',
+              libMedicament: '{{lorem(1, "words")}}',
+              dosageMedicament : '{{integer(20, 40)}}',
+              dciMedicament: ''
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

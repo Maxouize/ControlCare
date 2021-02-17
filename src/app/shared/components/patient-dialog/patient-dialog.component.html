@@ -1,0 +1,58 @@
+<h1 mat-dialog-title style="text-align: center;"> {{data.mode}} de patient</h1>
+<div mat-dialog-content>
+    <form [formGroup]="patientForm" class="content-body">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Nom</mat-label>
+                <input matInput formControlName="nomPatient" placeholder="Nom" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Prénom</mat-label>
+                <input matInput formControlName="prenomPatient" placeholder="Prénom" required>
+            </mat-form-field>
+            <mat-form-field class="field-full-width" appearance="fill">
+                <mat-label>Date de naissance</mat-label>
+                <input matInput formControlName="dateNaissancePatient" [matDatepicker]="birthdayPicker" required>
+                <mat-datepicker-toggle matSuffix [for]="birthdayPicker"></mat-datepicker-toggle>
+                <mat-datepicker #birthdayPicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Sexe</mat-label>
+                <mat-select formControlName="sexe" required>
+                    <mat-option value="'M'">
+                        M
+                    </mat-option>
+                    <mat-option value="'F'">
+                        F
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Téléphone</mat-label>
+                <input matInput formControlName="telephonePatient" placeholder="Téléphone" required>
+                <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Adresse</mat-label>
+                <input matInput formControlName="adressePatient" placeholder="Adresse" required>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Nom personne à prévenir</mat-label>
+                <input matInput formControlName="nomPersPrevenir" placeholder="Nom" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Téléphone personne à prévenir</mat-label>
+                <input matInput formControlName="telPersPrevenir" placeholder="Téléphone" required>
+                <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()" cdkFocusInitial>Fermer</button>
+    <button mat-button (click)="saveAppointment()">{{data?.titleAction}}</button>
+</div>

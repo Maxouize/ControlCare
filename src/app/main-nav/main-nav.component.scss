@@ -1,0 +1,98 @@
+@import '../../styles/.variables';
+@import '../../styles/theme.scss';
+
+h1 {
+  // color: map-get($custom-colors, custom-color-primary-dark);
+  position: fixed;
+  font-weight: bold;
+  top: 0;
+  right: 5%;
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    // display: none;
+  }
+}
+
+.main-menu {
+  background: linear-gradient(180deg, mat-color($mat-teal, 900), mat-color($mat-teal, 400));
+  border-right: 1px solid #e5e5e5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  width: 60px;
+  overflow: hidden;
+  -webkit-transition: width 0.1s linear;
+  transition: width 0.1s linear;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  z-index: 1000;
+}
+
+.main-menu:hover {
+  width: 250px;
+  overflow: visible;
+}
+
+.main-menu > ul {
+  padding-inline-start: 0;
+  margin: 7px 0;
+}
+
+.main-menu li > a {
+  cursor: pointer;
+}
+
+.main-menu li > a, .main-menu li {
+  position: relative;
+  display: block;
+  width: 250px;
+  display: table;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.nav-icon {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.main-menu .nav-icon {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+.main-menu .nav-text {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 190px;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.main-menu > ul.logout {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.nav-logo {
+  font-size: 24px;
+}

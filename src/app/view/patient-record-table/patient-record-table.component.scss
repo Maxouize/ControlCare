@@ -1,0 +1,68 @@
+@import '../../../styles/theme.scss';
+
+.container-resp-nav {
+    transition: margin-left 0.15s;
+    margin: 0 0 0 20px;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    color: #333;
+    background: #fff;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+    width: 80%;
+}
+
+.field-full-width {
+    width: 100%;
+    padding: 0 10px 0 10px;
+}
+
+.content-title {
+    border-radius: 3px;
+    margin: -20px 0 0 15px;
+    padding: 15px;
+    background: linear-gradient(60deg, mat-color($mat-teal, 700), mat-color($mat-teal, 400));
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px  mat-color($mat-teal, 900);
+    width: 30%;
+    color: #fff;
+}
+
+.content-body {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+}
+
+.mat-button {
+    background-color: mat-color($mat-teal, 700);
+    border-color: mat-color($mat-teal, 700);
+    color: #fff;
+    width: 20%;
+    margin: 10px;
+}
+
+.container-table {
+    margin-top: 20px;
+    width: 80%;
+    overflow: auto;
+    max-height: 500px;
+    border-radius: 6px;
+    color: #333;
+    background: #fff;
+}
+
+#test:hover {
+    fill: blue;
+}
+
+mat-datepicker-toggle {
+    display: inline-block;
+}

@@ -1,0 +1,47 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="login-container">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>ControlCare
+                <mat-icon>healing</mat-icon>
+            </mat-card-title>
+            <mat-card-subtitle>Connexion à l'application</mat-card-subtitle>
+        </mat-card-header>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <mat-card-content>
+                <mat-tab-group dynamicHeight mat-align-tabs="center">
+                    <mat-tab label="Identifiants">
+                        <div class="example-small-box mat-elevation-z4">
+                            <mat-form-field appearance="legacy">
+                                <mat-label>Identifiant</mat-label>
+                                <input matInput formControlName="username">
+                                <mat-icon matSuffix>person</mat-icon>
+                                <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
+                                    L'identifiant est <strong>requis</strong>.
+                                </mat-error>
+                            </mat-form-field>
+                            <mat-form-field appearance="legacy">
+                                <mat-label>Mot de passe</mat-label>
+                                <input matInput type="password" formControlName="password">
+                                <mat-icon matSuffix>lock</mat-icon>
+                                <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                                    Le mot de passe est <strong>requis</strong>.
+                                </mat-error>
+                            </mat-form-field>
+                            <button mat-raised-button color="primary" type="submit">Se connecter</button>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="France Connect">
+                        <div class="example-small-box mat-elevation-z4">
+                            <img (click)="onClickFC()" src="assets/img/logo-fc.svg">
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="CPS / CPE">
+                        <div class="example-small-box mat-elevation-z4">
+                            Demande de détection de carte sur le lecteur carte Sesam-Vitale (Professionnel)
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </mat-card-content>
+        </form>
+    </mat-card>
+</div>

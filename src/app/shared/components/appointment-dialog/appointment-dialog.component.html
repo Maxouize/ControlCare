@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>{{data?.title}}</h1>
+<div mat-dialog-content>
+    <p>{{data.aptStart | date :'dd/MM/yyyy'}}</p>
+    <p>Heure de début : {{data?.aptStart | date:'hh:mm' }}</p>
+    <p>Heure de fin : {{data?.aptEnd | date:'hh:mm' }}</p>
+</div>
+<form [formGroup]="appointmentForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Choix du patient</mat-label>
+        <mat-select formControlName="idPatient">
+            <mat-option *ngFor="let patient of data.patientList" value="{{patient?.idPatient}}">{{patient?.nomPatient}}
+                {{patient?.prenomPatient}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()" cdkFocusInitial>Fermer</button>
+    <button mat-button (click)="saveAppointment()">{{data?.titleAction}}</button>
+</div>

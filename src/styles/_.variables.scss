@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+
+
+// Custom colors
+$custom-colors: (
+  custom-color-primary-dark: mat-color($mat-teal, 700),
+  custom-color-primary: mat-color($mat-teal, 500),
+  custom-color-primary-light: mat-color($mat-teal, 300),
+);

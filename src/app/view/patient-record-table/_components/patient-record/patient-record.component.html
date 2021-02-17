@@ -1,0 +1,36 @@
+<div class="container-resp-nav">
+    <mat-card class="example-card" style="width: 80%;">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+                <mat-icon svgIcon="person_circle"></mat-icon>
+            </div>
+            <mat-card-title>{{patient?.nomPatient}} {{patient?.prenomPatient}}</mat-card-title>
+            <mat-card-subtitle>Date de dernière consultation : {{ derniereConsultation?.dateConsultation }}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-tab-group dynamicHeight mat-align-tabs="center">
+                <mat-tab label="Info. générales">
+                    <div class="example-small-box mat-elevation-z4">
+                        Info. générales
+                    </div>
+                </mat-tab>
+                <mat-tab label="Saisir note">
+                    <div class="example-small-box mat-elevation-z4">
+                        Saisir note
+                    </div>
+                </mat-tab>
+                <mat-tab label="Info. complémentaires">
+                    <div class="example-small-box mat-elevation-z4">
+                        Info. complémentaires
+                    </div>
+                </mat-tab>
+                <mat-tab label="Suvi">
+                    <div class="example-small-box mat-elevation-z4">
+                        Suivi
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card-content>
+    </mat-card>
+</div>

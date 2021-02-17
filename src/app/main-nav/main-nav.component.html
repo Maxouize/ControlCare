@@ -1,0 +1,25 @@
+<!-- (mouseenter)="mouseEnterNav()" (mouseleave)="mouseLeaveNav()" -->
+<div *ngIf="isLoggedIn$ | async as isLoggedIn">
+  <div class="main-menu" *ngIf="isLoggedIn$ | async as isLoggedIn">
+    <ul>
+      <li>
+        <mat-icon class="nav-icon">healing</mat-icon>
+        <span class="nav-text nav-logo">ControlCare</span>
+      </li>
+      <li *ngFor="let menu of menuList">
+        <a routerLink="{{ menu.routerLink }}">
+          <mat-icon class="nav-icon">{{ menu.icon }}</mat-icon>
+          <span class="nav-text">{{ menu.label }}</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="logout">
+      <li>
+        <a (click)="logout()">
+          <mat-icon class="nav-icon">power_settings_new</mat-icon>
+          <span class="nav-text">Déconnexion</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

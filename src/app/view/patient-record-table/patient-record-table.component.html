@@ -1,0 +1,87 @@
+<div *ngIf="filterForm" class="container-resp-nav">
+    <form class="container-card" [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+        <mat-label class="content-title">
+            Filtre de recherche
+        </mat-label>
+        <div class="content-body">
+            <mat-form-field class="field-full-width" appearance="fill">
+                <mat-label>Nom</mat-label>
+                <input matInput formControlName="nomPatient" placeholder="Nom">
+                <mat-datepicker-toggle *ngIf="filterForm.controls.nomPatient.value" matSuffix
+                    (click)="filterForm.controls.nomPatient.reset()">
+                    <mat-icon matDatepickerToggleIcon>clear</mat-icon>
+                </mat-datepicker-toggle>
+            </mat-form-field>
+            <mat-form-field class="field-full-width" appearance="fill">
+                <mat-label>Prénom</mat-label>
+                <input matInput formControlName="prenomPatient" placeholder="Prénom">
+                <mat-datepicker-toggle *ngIf="filterForm.controls.prenomPatient.value" matSuffix
+                    (click)="filterForm.controls.prenomPatient.reset()">
+                    <mat-icon matDatepickerToggleIcon>clear</mat-icon>
+                </mat-datepicker-toggle>
+            </mat-form-field>
+            <mat-form-field class="field-full-width" appearance="fill">
+                <mat-label>Date de naissance</mat-label>
+                <input matInput formControlName="dateNaissancePatient" [matDatepicker]="birthdayPicker" readonly>
+                <mat-datepicker-toggle *ngIf="filterForm.controls.dateNaissancePatient.value" matSuffix
+                    (click)="clearDate()">
+                    <mat-icon matDatepickerToggleIcon>clear</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker-toggle matSuffix [for]="birthdayPicker"></mat-datepicker-toggle>
+                <mat-datepicker #birthdayPicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </form>
+
+    <div class="container-table">
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- nomPatient Column -->
+            <ng-container matColumnDef="nomPatient">
+                <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element?.nomPatient}} </mat-cell>
+            </ng-container>
+
+            <!-- prenomPatient Column -->
+            <ng-container matColumnDef="prenomPatient">
+                <mat-header-cell *matHeaderCellDef> Prénom </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element?.prenomPatient}} </mat-cell>
+            </ng-container>
+
+            <!-- sexe Column -->
+            <ng-container matColumnDef="sexe">
+                <mat-header-cell *matHeaderCellDef> Sexe </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element?.sexe}} </mat-cell>
+            </ng-container>
+
+            <!-- dateNaissancePatient Column -->
+            <ng-container matColumnDef="dateNaissancePatient">
+                <mat-header-cell *matHeaderCellDef> Né(e) le </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element?.dateNaissancePatient}}
+                </mat-cell>
+            </ng-container>
+
+            <!-- telephonePatient Column -->
+            <ng-container matColumnDef="telephonePatient">
+                <mat-header-cell *matHeaderCellDef> Téléphone </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element?.telephonePatient}} </mat-cell>
+            </ng-container>
+
+            <!-- action Column -->
+            <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <button mat-icon-button color="primary" (click)="editPatientData(element?.idPatient)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="consultPatientData(element?.idPatient)">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+
+@import '../../../styles/theme.scss';
+
+.container-resp-nav {
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.fc-button, .fc-button-primary:hover, .fc-button.btn-primary, .fc .fc-button-primary, .fc-prev-button, .fc-button, .fc-button-primary {
+    background-color: mat-color($mat-teal, 900) !important;
+    background-color: red;
+    border-color: mat-color($mat-teal, 900) !important;
+}
+
+.fc-state-default {
+    color: white !important;
+    background-color: black !important;
+  }
+  
+  .fc-state-active {
+    background-color: #50E3C2 !important;
+  }
+  
+  .fc-state-hover {
+    background-color: black !important;
+    border-color: black !important;
+    border-width: medium !important;
+  }
+  .fc-button .fc-button-inner {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  .fc-header-right .fc-button .fc-button-inner:hover {
+    background-color: red !important;
+    color: #fff !important;
+  }
+  .fc-button.fc-state-active .fc-button-inner {
+    background-color: green !important;
+    color: #fff !important;
+  }
+
+  .fc-header-title{
+    color: #0052ba;
+    background: #000;
+    font-size: 20px;
+}
