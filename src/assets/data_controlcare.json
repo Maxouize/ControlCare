@@ -13,19 +13,21 @@
         "consultation": [
             {
                 "idConsultation": 1,
-                "dateConsultation": "01/12/2020",
-                "motifConsultatin": "Non irure exercitation minim veniam Lorem cupidatat minim.",
+                "dateConsultation": "01/03/2021 14:00",
+                "motifConsultation": "Non irure exercitation minim veniam Lorem cupidatat minim.",
                 "noteConsultation": "Eiusmod adipisicing nisi non occaecat aute quis pariatur. Esse irure labore deserunt veniam non quis officia incididunt qui qui commodo fugiat. Ea excepteur ut quis ea et proident nulla cupidatat anim non sunt cillum sit qui. Aliquip eiusmod ea laborum occaecat eu culpa sunt esse duis.\r\n",
                 "typeConsultation": {
                     "idTypeConsult": 1,
                     "libelleTypeCons": "Type consultation A",
                     "prixTypeCons": 43.33
                 },
-                "fichier": {
-                    "idFichier": 1,
-                    "nomFichier": "",
-                    "fichier": ""
-                },
+                "fichier": [
+                    {
+                        "idFichier": 1,
+                        "nomFichier": "",
+                        "fichier": ""
+                    }
+                ],
                 "praticien": {
                     "idPraticien": 1,
                     "nomPraticien": "Mcclain",
@@ -75,19 +77,21 @@
             },
             {
                 "idConsultation": 2,
-                "dateConsultation": "18/12/2020",
-                "motifConsultatin": "Eu adipisicing do aliqua qui est consectetur tempor occaecat ea ullamco adipisicing.",
+                "dateConsultation": "03/03/2021 08:00",
+                "motifConsultation": "Eu adipisicing do aliqua qui est consectetur tempor occaecat ea ullamco adipisicing.",
                 "noteConsultation": "Ipsum eu excepteur elit magna in commodo aliquip in eiusmod eu labore magna aute. Qui duis do eu veniam. Aliquip proident adipisicing proident velit culpa id culpa Lorem.\r\n",
                 "typeConsultation": {
                     "idTypeConsult": 1,
                     "libelleTypeCons": "Type consultation A",
                     "prixTypeCons": 43.33
                 },
-                "fichier": {
-                    "idFichier": 2,
-                    "nomFichier": "",
-                    "fichier": ""
-                },
+                "fichier": [
+                    {
+                        "idFichier": 2,
+                        "nomFichier": "",
+                        "fichier": ""
+                    }
+                ],
                 "praticien": {
                     "idPraticien": 1,
                     "nomPraticien": "Mcclain",
@@ -111,19 +115,21 @@
             },
             {
                 "idConsultation": 3,
-                "dateConsultation": "15/01/2021",
-                "motifConsultatin": "Voluptate aute elit ad dolore voluptate nisi tempor amet esse.",
+                "dateConsultation": "10/03/2021 09:30",
+                "motifConsultation": "Voluptate aute elit ad dolore voluptate nisi tempor amet esse.",
                 "noteConsultation": "Enim est aliqua proident dolore ullamco ea labore sit id nulla exercitation eu reprehenderit pariatur. Dolor aliqua eiusmod dolor aliqua ea tempor dolore ad sit anim. Cupidatat aute magna consequat fugiat eiusmod incididunt pariatur occaecat id magna excepteur.\r\n",
                 "typeConsultation": {
                     "idTypeConsult": 2,
                     "libelleTypeCons": "Type consultation B",
                     "prixTypeCons": 41.95
                 },
-                "fichier": {
-                    "idFichier": 3,
-                    "nomFichier": "",
-                    "fichier": ""
-                },
+                "fichier": [
+                    {
+                        "idFichier": 3,
+                        "nomFichier": "",
+                        "fichier": ""
+                    }
+                ],
                 "praticien": {
                     "idPraticien": 2,
                     "nomPraticien": "Foster",
@@ -177,19 +183,21 @@
         "consultation": [
             {
                 "idConsultation": 4,
-                "dateConsultation": "09/01/2021",
-                "motifConsultatin": "Magna consequat consequat est tempor esse occaecat mollit adipisicing anim velit culpa dolore deserunt est.",
+                "dateConsultation": "10/03/2021 10:30",
+                "motifConsultation": "Magna consequat consequat est tempor esse occaecat mollit adipisicing anim velit culpa dolore deserunt est.",
                 "noteConsultation": "Ex minim aute occaecat fugiat nisi dolore adipisicing nostrud. Proident ex quis ad tempor minim. Ullamco ea quis in ut culpa. Mollit aliquip nulla ea minim labore veniam anim cillum Lorem est minim occaecat dolor cillum. Cillum incididunt mollit id laboris non quis dolor veniam.\r\n",
                 "typeConsultation": {
                     "idTypeConsult": 2,
                     "libelleTypeCons": "Type consultation B",
                     "prixTypeCons": 41.95
                 },
-                "fichier": {
-                    "idFichier": 4,
-                    "nomFichier": "",
-                    "fichier": ""
-                },
+                "fichier": [
+                    {
+                        "idFichier": 4,
+                        "nomFichier": "",
+                        "fichier": ""
+                    }
+                ],
                 "praticien": {
                     "idPraticien": 3,
                     "nomPraticien": "Wilson",
@@ -239,19 +247,21 @@
             },
             {
                 "idConsultation": 5,
-                "dateConsultation": "21/12/2020",
-                "motifConsultatin": "Officia ex sint est aliqua veniam voluptate anim nulla irure eu sunt.",
+                "dateConsultation": "03/03/2021 17:00",
+                "motifConsultation": "Officia ex sint est aliqua veniam voluptate anim nulla irure eu sunt.",
                 "noteConsultation": "Id nulla minim voluptate ad dolore. Occaecat eiusmod dolor incididunt commodo voluptate sit proident laboris minim in excepteur. Pariatur enim aliquip reprehenderit ex consequat. Magna tempor aute ea exercitation exercitation laborum non irure. Esse enim qui commodo qui aliquip do non adipisicing exercitation dolor deserunt aliquip consequat. Elit velit officia adipisicing laborum est consequat voluptate qui est aliquip aute minim consequat magna.\r\n",
                 "typeConsultation": {
                     "idTypeConsult": 1,
                     "libelleTypeCons": "Type consultation A",
                     "prixTypeCons": 43.95
                 },
-                "fichier": {
-                    "idFichier": 5,
-                    "nomFichier": "",
-                    "fichier": ""
-                },
+                "fichier": [
+                    {
+                        "idFichier": 5,
+                        "nomFichier": "",
+                        "fichier": ""
+                    }
+                ],
                 "praticien": {
                     "idPraticien": 3,
                     "nomPraticien": "Wilson",
@@ -302,19 +312,21 @@
         "consultation": [
             {
                 "idConsultation": 6,
-                "dateConsultation": "10/12/2020",
-                "motifConsultatin": "Adipisicing quis quis laboris fugiat occaecat ipsum amet sunt est Lorem laborum sit.",
+                "dateConsultation": "03/03/2021 17:30",
+                "motifConsultation": "Adipisicing quis quis laboris fugiat occaecat ipsum amet sunt est Lorem laborum sit.",
                 "noteConsultation": "Cillum excepteur occaecat anim pariatur ad exercitation do consequat non. Minim ex excepteur excepteur velit dolor sint dolor. Amet eu ut commodo ut consectetur irure deserunt minim eiusmod. Veniam labore irure sit ipsum nisi velit ullamco dolor consequat laboris nisi ea Lorem eiusmod. Velit velit et ipsum ex ad et in dolore est nisi elit ut enim sunt. Dolore sit incididunt do cupidatat.\r\n",
                 "typeConsultation": {
                     "idTypeConsult": 3,
                     "libelleTypeCons": "Type consultation C",
                     "prixTypeCons": 15.82
                 },
-                "fichier": {
-                    "idFichier": 6,
-                    "nomFichier": "",
-                    "fichier": ""
-                },
+                "fichier": [
+                    {
+                        "idFichier": 6,
+                        "nomFichier": "",
+                        "fichier": ""
+                    }
+                ],
                 "praticien": {
                     "idPraticien": 4,
                     "nomPraticien": "Elizabeth",
@@ -364,19 +376,21 @@
             },
             {
                 "idConsultation": 7,
-                "dateConsultation": "02/01/2021",
-                "motifConsultatin": "Esse anim fugiat ad laborum cillum proident enim labore aute ipsum est ut.",
+                "dateConsultation": "09/03/2021 11:00",
+                "motifConsultation": "Esse anim fugiat ad laborum cillum proident enim labore aute ipsum est ut.",
                 "noteConsultation": "Nostrud est ea voluptate deserunt culpa. Veniam non magna esse anim. Sunt veniam ipsum consequat aliqua occaecat velit minim. Officia reprehenderit esse non tempor.\r\n",
                 "typeConsultation": {
                     "idTypeConsult": 2,
                     "libelleTypeCons": "Type consultation B",
                     "prixTypeCons": 41.95
                 },
-                "fichier": {
-                    "idFichier": 7,
-                    "nomFichier": "",
-                    "fichier": ""
-                },
+                "fichier": [
+                    {
+                        "idFichier": 7,
+                        "nomFichier": "",
+                        "fichier": ""
+                    }
+                ],
                 "praticien": {
                     "idPraticien": 1,
                     "nomPraticien": "Aileen",
@@ -400,19 +414,21 @@
             },
             {
                 "idConsultation": 8,
-                "dateConsultation": "13/12/2020",
-                "motifConsultatin": "Dolor qui ipsum cillum in mollit consectetur sint dolore ex ad est laboris sit.",
+                "dateConsultation": "09/03/2021 14:30",
+                "motifConsultation": "Dolor qui ipsum cillum in mollit consectetur sint dolore ex ad est laboris sit.",
                 "noteConsultation": "Esse occaecat qui velit ex nostrud fugiat ipsum. Eiusmod nulla Lorem duis nisi nulla minim mollit commodo ullamco exercitation ullamco. Esse aliquip eiusmod laboris cillum cupidatat qui do aute labore culpa cupidatat esse esse do. Sit et ipsum enim dolor Lorem aute et cupidatat aute consequat. Aliqua magna amet eiusmod quis occaecat. Magna laborum deserunt eiusmod exercitation eu dolor. Magna nostrud exercitation do irure ea sit.\r\n",
                 "typeConsultation": {
                     "idTypeConsult": 3,
                     "libelleTypeCons": "Type consultation C",
                     "prixTypeCons": 15.82
                 },
-                "fichier": {
-                    "idFichier": 8,
-                    "nomFichier": "",
-                    "fichier": ""
-                },
+                "fichier": [
+                    {
+                        "idFichier": 8,
+                        "nomFichier": "",
+                        "fichier": ""
+                    }
+                ],
                 "praticien": {
                     "idPraticien": 2,
                     "nomPraticien": "Lidia",
@@ -466,19 +482,21 @@
         "consultation": [
             {
                 "idConsultation": 9,
-                "dateConsultation": "19/12/2020",
-                "motifConsultatin": "Id elit sit pariatur cillum.",
+                "dateConsultation": "06/03/2021 13:00",
+                "motifConsultation": "Id elit sit pariatur cillum.",
                 "noteConsultation": "Laborum ea reprehenderit Lorem reprehenderit voluptate cillum duis anim eiusmod ex qui dolore ipsum velit. Eiusmod sit cillum fugiat reprehenderit ea velit et officia est. Culpa elit non veniam deserunt dolor culpa. Mollit proident id consectetur excepteur ex non in tempor adipisicing eu cillum eu ex. Dolor deserunt consequat mollit aute reprehenderit nostrud elit et nostrud anim consectetur cillum. Et irure ea ea irure voluptate magna. Ad adipisicing ut velit enim quis mollit anim id velit anim do consectetur minim.\r\n",
                 "typeConsultation": {
                     "idTypeConsult": 3,
                     "libelleTypeCons": "Type de consultation C",
                     "prixTypeCons": 15.82
                 },
-                "fichier": {
-                    "idFichier": 9,
-                    "nomFichier": "",
-                    "fichier": ""
-                },
+                "fichier": [
+                    {
+                        "idFichier": 9,
+                        "nomFichier": "",
+                        "fichier": ""
+                    }
+                ],
                 "praticien": {
                     "idPraticien": 1,
                     "nomPraticien": "Mcclain",
@@ -528,19 +546,21 @@
             },
             {
                 "idConsultation": 10,
-                "dateConsultation": "22/12/2020",
-                "motifConsultatin": "Id tempor in elit minim tempor quis aute commodo in duis.",
+                "dateConsultation": "06/03/2021 08:00",
+                "motifConsultation": "Id tempor in elit minim tempor quis aute commodo in duis.",
                 "noteConsultation": "Enim magna voluptate sint aliqua. Ad ea ad id aliquip ad cillum nulla laboris cupidatat fugiat mollit non sit. Consequat irure do enim exercitation ea proident. Magna et proident voluptate amet.\r\n",
                 "typeConsultation": {
                     "idTypeConsult": 1,
                     "libelleTypeCons": "Type consultation A",
                     "prixTypeCons": 43.33
                 },
-                "fichier": {
-                    "idFichier": 10,
-                    "nomFichier": "",
-                    "fichier": ""
-                },
+                "fichier": [
+                    {
+                        "idFichier": 10,
+                        "nomFichier": "",
+                        "fichier": ""
+                    }
+                ],
                 "praticien": {
                     "idPraticien": 1,
                     "nomPraticien": "Mcclain",

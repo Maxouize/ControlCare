@@ -5,7 +5,8 @@
                 <mat-icon svgIcon="person_circle"></mat-icon>
             </div>
             <mat-card-title>{{patient?.nomPatient}} {{patient?.prenomPatient}}</mat-card-title>
-            <mat-card-subtitle>Date de dernière consultation : {{ derniereConsultation?.dateConsultation }}
+            <mat-card-subtitle>
+                Date de dernière consultation : {{ derniereConsultation?.dateConsultation }}
             </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
@@ -27,7 +28,18 @@
                 </mat-tab>
                 <mat-tab label="Suvi">
                     <div class="example-small-box mat-elevation-z4">
-                        Suivi
+                        <mat-form-field>
+                            <input matInput placeholder="Médicament" aria-label="State" [matAutocomplete]="auto"
+                                [formControl]="searchMedicamentCtrl">
+                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+                                <ng-container *ngIf="!isLoading">
+                                    <mat-option *ngFor="let medicament of filteredMedicaments" [value]="medicament">
+                                        <span><b>{{medicament?.title}}</b></span>
+                                    </mat-option>
+                                </ng-container>
+                            </mat-autocomplete>
+                        </mat-form-field>
                     </div>
                 </mat-tab>
             </mat-tab-group>

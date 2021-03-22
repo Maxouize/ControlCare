@@ -1,3 +1,4 @@
+import { AppDateAdapter } from './dateAdapter';
 import { CommonModule } from '@angular/common';
 import { AppointmentDialogComponent } from './components/appointment-dialog/appointment-dialog.component';
 import { NgModule } from '@angular/core';

@@ -1,5 +1,5 @@
 export class TypeConsultation {
-    idTypeConsultation: number;
+    idTypeConsult: number;
     nomTypeConsultation: string;
     prixTypeConsultation: number;
 }
@@ -9,7 +9,7 @@ export const createTypeConsultation = <T extends Partial<TypeConsultation>>(init
 };
 
 export const emptyTypeConsultation = (): TypeConsultation => ({
-    idTypeConsultation: null,
+    idTypeConsult: null,
     nomTypeConsultation: '',
     prixTypeConsultation: null
 });

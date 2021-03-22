@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Patient, getPatientList, emptyPatient } from '../../core/models/Patient';
+import { Patient, emptyPatient } from '../../core/models/Patient';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
@@ -29,7 +29,7 @@ export class PatientRecordTableComponent implements OnInit, AfterViewInit {
   constructor(public dialog: MatDialog, private datepipe: DatePipe, private router: Router, private generalService: GeneralService) { }
 
   ngOnInit(): void {
-    this.generalService.getPatientListFromJson().subscribe((patientList) => {
+    this.generalService.getStoredPatients().subscribe((patientList) => {
       console.log(patientList);
       this.patientList = patientList;
       this.dataSource = new MatTableDataSource(this.patientList);

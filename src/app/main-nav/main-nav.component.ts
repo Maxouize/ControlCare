@@ -29,9 +29,7 @@ export class MainNavComponent implements OnInit {
       { routerLink: '/visits', icon: 'laptop', label: 'Visites' },
       { routerLink: '/patientRecord', icon: 'folder', label: 'Dossier patient' },
       { routerLink: '/settings', icon: 'settings', label: 'Paramétrage' },
-      // { routerLink: '/map', icon: 'location_on', label: 'Map' },
-      // { routerLink: '/document', icon: 'info', label: 'Documentation' },
-      // { routerLink: '/calendar', icon: 'calendar_today', label: 'Calendrier' },
+      { routerLink: '/blockchain', icon: 'security', label: 'Blockchain' },
     ];
 
     this.isLoggedIn$ = this.authService.getCurrentUser();

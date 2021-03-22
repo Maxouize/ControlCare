@@ -28,15 +28,3 @@ export const emptyPatient = (): Patient => ({
     telPersPrevenir: ''
 });
 
-export const getPatientList: Patient[] = [
-    {
-        idPatient: 1, nomPatient: 'Dewez', prenomPatient: 'Maxime', sexe: 'M',
-        telephonePatient: '06.99.99.99.99', adressePatient: '', dateNaissancePatient: new Date('1994-12-17'),
-        codeAssurance: 'assurance 1', nomPersPrevenir: '', telPersPrevenir: ''
-    },
-    {
-        idPatient: 2, nomPatient: 'Frou', prenomPatient: 'Michelle', sexe: 'F',
-        telephonePatient: '06.88.88.88.88', adressePatient: '', dateNaissancePatient: new Date('1912-02-21'),
-        codeAssurance: 'assurance 2', nomPersPrevenir: '', telPersPrevenir: ''
-    }
-];

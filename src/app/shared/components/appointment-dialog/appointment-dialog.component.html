@@ -7,9 +7,26 @@
 <form [formGroup]="appointmentForm">
     <mat-form-field appearance="fill">
         <mat-label>Choix du patient</mat-label>
-        <mat-select formControlName="idPatient">
-            <mat-option *ngFor="let patient of data.patientList" value="{{patient?.idPatient}}">{{patient?.nomPatient}}
-                {{patient?.prenomPatient}}</mat-option>
+        <mat-select formControlName="idPatient" required>
+            <mat-option *ngFor="let patient of data.patientList" [value]="patient?.idPatient">
+                {{patient?.nomPatient}} {{patient?.prenomPatient}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Choix du praticien</mat-label>
+        <mat-select formControlName="idPraticien" required>
+            <mat-option *ngFor="let praticien of praticienList" [value]="praticien?.idPraticien">
+                {{praticien?.nomPraticien}} {{praticien?.prenomPraticien}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Type de consultation</mat-label>
+        <mat-select formControlName="idTypeConsult" required>
+            <mat-option *ngFor="let typeConsultation of typeConsultationList" [value]="typeConsultation?.idTypeConsult">
+                {{typeConsultation?.libelleTypeCons}} - {{typeConsultation?.prixTypeCons}} €
+            </mat-option>
         </mat-select>
     </mat-form-field>
 </form>

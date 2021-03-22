@@ -1,4 +1,4 @@
-import { Patient, getPatientList } from './../../core/models/Patient';
+import { Patient } from './../../core/models/Patient';
 import { AppointmentDialogComponent } from './../../shared/components/appointment-dialog/appointment-dialog.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BusinessHoursInput, Calendar, EventInput, ViewContentArg } from '@fullcalendar/core';
@@ -10,6 +10,7 @@ import timeGridPlugin from '@fullcalendar/timeGrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import * as _ from 'lodash';
 import { MatDialog } from '@angular/material/dialog';
+import { GeneralService } from '../../core/services/general.service';
 
 @Component({
   selector: 'app-planning',
@@ -28,15 +29,18 @@ export class PlanningComponent implements OnInit {
 
   @ViewChild('fullcalendar') fullcalendar: FullCalendarComponent;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,
+    private generalService: GeneralService) {
     const name = Calendar.name;
   }
 
   ngOnInit(): void {
-    this.patientList = getPatientList;
-    this.initCalendarOptions();
-    this.initBusinessHours();
-    this.initCalendarEvents();
+    this.generalService.getStoredPatients().subscribe(patientList => {
+      this.patientList = patientList;
+      this.initCalendarOptions();
+      this.initBusinessHours();
+      this.initCalendarEvents();
+    })
   }
 
   initCalendarOptions(): void {
@@ -60,8 +64,8 @@ export class PlanningComponent implements OnInit {
       slotMaxTime: '21:00:00',
       eventClick: this.handleEventClick.bind(this),
       select: this.handleDateSelect.bind(this),
-      eventDragStop: this.handleEventDragStop.bind(this),
-      eventResize: this.handleEventDragStop.bind(this),
+      // eventDragStop: this.handleEventDragStop.bind(this),
+      // eventResize: this.handleEventDragStop.bind(this),
       windowResize: this.windowResize.bind(this)
     };
     this.appointementTime = 30;
@@ -84,28 +88,37 @@ export class PlanningComponent implements OnInit {
   }
 
   initCalendarEvents(): void {
-    const firstPatient = this.patientList[0];
-    this.calendarEvents = [
-      {
-        id: '1',
-        title: firstPatient.nomPatient + ' ' + firstPatient.prenomPatient,
-        idPatient: firstPatient.idPatient,
-        start: new Date().setHours(9),
-        end: new Date().setHours(11),
-        backgroundColor: '#378006',
-        borderColor: '#378006'
-      }
-    ];
-    this.calendarOptions.events = this.calendarEvents;
+    this.generalService.getConsultation().subscribe(consulationsList => {
+      const calendarEvents = [];
+      consulationsList.forEach(patient => {
+        patient.consultation.forEach(consultation => {
+          const dateConsultation = consultation.dateConsultation instanceof Date ? consultation.dateConsultation : this.generalService.parseStringToDateHour(consultation.dateConsultation);
+          calendarEvents.push(this.reshapeAppointmentCalendar(patient.idPatient,
+            patient.nomPatient,
+            patient.prenomPatient,
+            consultation.idConsultation,
+            dateConsultation,
+            consultation.praticien.idPraticien,
+            consultation.typeConsultation.idTypeConsult
+          ));
+        });
+      });
+      this.calendarEvents = calendarEvents;
+      this.calendarOptions.events = this.calendarEvents;
+    });
   }
 
   handleDateSelect(arg): void {
-    console.log(arg);
     const dialogRef = this.dialog.open(AppointmentDialogComponent, {
       width: '400px',
       data: {
-        title: 'Prise de rendez-vous', aptStart: arg.start, aptEnd: arg.end, titleAction: 'Enregistrer',
-        patientList: this.patientList
+        title: 'Prise de rendez-vous',
+        aptStart: arg.start,
+        aptEnd: arg.end, titleAction: 'Enregistrer',
+        patientList: this.patientList,
+        praticienList: this.generalService.getMedicalStaffValue(),
+        typeConsultationList: this.generalService.getTypeConsultationValue(),
+        isDisabled: false
       },
     });
 
@@ -114,28 +127,29 @@ export class PlanningComponent implements OnInit {
       if (result) {
         const max = +_.maxBy(_.map(this.calendarEvents, _.property('id'))) + 1;
         const patient = _.find(this.patientList, { idPatient: +result.idPatient }) as Patient;
-        console.log(max);
-        this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
-          id: max.toString(),
-          title: patient.nomPatient + ' ' + patient.prenomPatient,
-          start: result.startDate,
-          end: result.endDate,
-          idPatient: patient.idPatient
-        });
+        const consultationToAdd = this.reshapeAppointmentCalendar(patient.idPatient, patient.nomPatient, patient.prenomPatient, max,
+          result.startDate, result.idPraticien, result.idTypeConsult)
+        this.calendarEvents = this.calendarEvents.concat(consultationToAdd);
         this.calendarOptions.events = this.calendarEvents;
+        this.generalService.addConsultation(consultationToAdd);
       }
     });
   }
 
   handleEventClick(arg): void {
-    console.log(arg);
     const patient = _.find(this.patientList, { idPatient: +arg.event.extendedProps.idPatient }) as Patient;
     const dialogRef = this.dialog.open(AppointmentDialogComponent, {
       width: '400px',
       data: {
         title: 'Rendez-vous de ' + patient.nomPatient + ' ' + patient.prenomPatient,
-        aptStart: arg.event.start, aptEnd: arg.event.end, titleAction: 'Modifier', patientList: this.patientList,
-        selectedPatient: patient.idPatient, idEvent: arg.event.id
+        aptStart: arg.event.start,
+        aptEnd: arg.event.end,
+        titleAction: 'Modifier', patientList: this.patientList,
+        dataEvent: arg?.event?.extendedProps,
+        idEvent: arg?.event?.id,
+        praticienList: this.generalService.getMedicalStaffValue(),
+        typeConsultationList: this.generalService.getTypeConsultationValue(),
+        isDisabled: false
       }
     });
 
@@ -170,6 +184,23 @@ export class PlanningComponent implements OnInit {
       contentApi.changeView('timeGridDay');
     } else {
       contentApi.changeView('timeGridWeek');
+    }
+  }
+
+  reshapeAppointmentCalendar(idPatient: number, nomPatient: string, prenomPatient: string, idConsultation: number,
+    dateConsultation: Date, idPraticien: number, idTypeConsult: number): any {
+    const endDateConsultation = new Date(dateConsultation);
+    endDateConsultation.setMinutes(dateConsultation.getMinutes() + 30);
+    return {
+      id: idConsultation,
+      title: nomPatient + ' ' + prenomPatient,
+      idPatient: +idPatient,
+      idPraticien: +idPraticien,
+      idTypeConsult: +idTypeConsult,
+      start: dateConsultation,
+      end: endDateConsultation,
+      backgroundColor: '#378006',
+      borderColor: '#378006',
     }
   }
 }

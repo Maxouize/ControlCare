@@ -1,0 +1,100 @@
+<div class="container-resp-nav">
+    <div class="container-card">
+        <mat-label class="content-title">
+            BlockChain
+        </mat-label>
+        <div class="container">
+            <div class="container-card" style="margin: 10px; width: 50%">
+                <form style="margin:20px;" [formGroup]="blockchainForm" (ngSubmit)="onSubmit()">
+                    <mat-form-field style="width: 100%;" appearance="fill">
+                        <mat-label>Nom</mat-label>
+                        <input matInput formControlName="nom" placeholder="Nom" required>
+                        <mat-datepicker-toggle *ngIf="blockchainForm.controls.nom.value" matSuffix
+                            (click)="blockchainForm.controls.nom.reset()">
+                            <mat-icon matDatepickerToggleIcon>clear</mat-icon>
+                        </mat-datepicker-toggle>
+                    </mat-form-field>
+                    <input hidden #fileInput type="file" (change)="onSelectFile($event)" id="file" required>
+                    <mat-form-field style="width: 100%;" appearance="fill">
+                        <mat-label>Fichier</mat-label>
+                        <input matInput formControlName="fileName" readonly>
+                        <mat-datepicker-toggle *ngIf="blockchainForm.controls.fileName.value" matSuffix
+                            (click)="blockchainForm.controls.fileName.reset()">
+                            <mat-icon matDatepickerToggleIcon>clear</mat-icon>
+                        </mat-datepicker-toggle>
+                    </mat-form-field>
+                    <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+                    <button type="submit" mat-raised-button>Submit</button>
+                </form>
+            </div>
+            <mat-tab-group dynamicHeight mat-align-tabs="center" style="margin: 10px; width: 100%;">
+                <mat-tab label="BlockChain">
+                    <div class="example-small-box">
+                        <div *ngFor="let bloc of blockchain; let i = index;" style="line-break: anywhere;">
+                            <p>
+                                <b>
+                                    Hash of block :
+                                </b>
+                                <br>
+                                {{ bloc.hash }}
+                                <br>
+                                <ng-container *ngIf="i > 0 else genesisBlock">
+                                    Block of file ID : {{bloc.idfile}}
+                                </ng-container>
+                                <ng-template #genesisBlock>
+                                    Genesis block
+                                </ng-template>
+                                <br><br>
+                            </p>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Fichiers">
+                    <div class="example-small-box">
+                        <div *ngIf="checkFile && files?.length > 0">
+                            <ng-container *ngIf="checkFile else fileCorrupted">
+                                <p style="color: green">Le fichier est intègre.</p>
+                            </ng-container>
+                            <ng-template #fileCorrupted>
+                                <p style="color: red">Le ficher a probablement été modifié.</p>
+                            </ng-template>
+                        </div>
+                        <div *ngFor="let file of files; let i = index;" style="line-break: anywhere;">
+                            <p>
+                                <b>
+                                    Author :
+                                </b>
+                                {{ file?.name }}
+                                <br>
+                                <b>
+                                    File :
+                                </b>
+                                {{ file?.file }}
+                                <br>
+                                <b>
+                                    ID File :
+                                </b>
+                                {{ file?.id }}
+                                <br>
+                                <button mat-icon-button color="primary" (click)="checkfile(file?.id)">
+                                    <mat-icon>visibility</mat-icon>
+                                </button>
+                                <br><br>
+                            </p>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+            <div class="container-card" style="margin: 10px; width: 40%; text-align: center;">
+                Online miners
+                <span *ngFor="let port of portList" [ngStyle]="{'color': port ? 'green' : 'red'}">
+                    Port - {{port}}
+                    <button mat-icon-button color="primary" (click)="updateFilesBlockChain(port)">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+</div>
